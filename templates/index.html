@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recherche OpenAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recherche OpenAI</h1>
+    <form action="/search" method="post">
+        <label for="query">Question :</label>
+        <input type="text" name="query" id="query" required>
+        <br>
+        <label for="url">URL du site :</label>
+        <input type="text" name="url" id="url">
+        <br>
+        <button type="submit">Rechercher</button>
+    </form>
+    {% if answer %}
+        <h2>Résultats pour : "{{ query }}"</h2>
+        <p>{{ answer }}</p>
+    {% endif %}
+</body>
+</html>
